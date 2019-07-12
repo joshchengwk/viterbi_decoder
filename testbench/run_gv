@@ -1,0 +1,4 @@
+vcs timescale -I -R  +v2k \
+../syn/mapped/viterbi.gv \
+../../../tsmc_lib/tsmc18.v \
+viterbi_tb_gv.v 

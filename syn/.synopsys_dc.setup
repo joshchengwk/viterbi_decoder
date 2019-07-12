@@ -1,0 +1,59 @@
+#  This is an example .synopsys_dc.setup file which should be
+#  used when transferring designs to Cadence through EDIF.
+
+
+# Library and Search Path variables 
+set search_path {. get_unix_variable(SYNOPSYS) + /libraries/syn \
+		/usr/eelocal/hksp018/syn018kit/synopsys \
+                /usr/eelocal/hksp018/syn018kit/symbols}
+set link_library {"typical.db"}                
+set target_library {"typical.db"}
+set symbol_library {tsmc18.sdb}
+
+# Verilog 
+set verilogout_no_tri true
+set edifin_lib_route_grid 1024
+set vhdlout_use_packages {IEEE.std_logic_1164, vtvtlib25.vcomponents}
+
+# Bus Naming variables */
+
+#set bus_naming_style %s<%d>
+#set bus_dimension_separator_style ><
+#set bus_range_separator_style :
+#set bus_extraction_style %s<%d:%d>
+
+# Power and Ground variables */
+
+set edifin_ground_net_name gnd!
+set edifin_ground_net_property_name 
+set edifin_ground_net_property_value 
+set edifout_ground_name gnd
+set edifout_ground_net_name gnd!
+set edifout_ground_net_property_name 
+set edifout_ground_net_property_value 
+set edifout_ground_pin_name gnd!
+set edifin_power_net_name vdd!
+set edifin_power_net_property_name 
+set edifin_power_net_property_value 
+set edifout_power_name vdd
+set edifout_power_net_name vdd!
+set edifout_power_net_property_name
+set edifout_power_net_property_value
+set edifout_power_pin_name vdd!
+set edifout_power_and_ground_representation net
+
+# Net to Port Connection variables */
+
+set edifin_autoconnect_ports true
+set compile_fix_multiple_port_nets true
+set gen_match_ripper_wire_widths true
+set link_force_case case_insensitive
+set single_group_per_sheet true
+set use_port_name_for_oscs false
+set write_name_nets_same_as_ports true
+
+# Output variables */
+
+set edifout_netlist_only false
+set edifout_target_system cadence
+set edifout_instantiate_ports true

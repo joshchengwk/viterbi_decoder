@@ -1,0 +1,8 @@
+vcs timescale -I -R  +v2k \
+../hdl/BMU.v \
+../hdl/PMU.v \
+../hdl/ACS.v \
+../hdl/SPMU.v \
+../hdl/RSTK.v \
+../hdl/viterbi_decoder.v \
+viterbi_tb.v 

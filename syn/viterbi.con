@@ -1,0 +1,26 @@
+set_max_transition 0.6 [remove_from_collection [all_outputs] [get_ports clk_div2_out]]
+
+create_clock -period 50 -name MCLK [get_ports clk]
+create_clock -period 100 -name SCLK [get_pins u1/clk_div2_out]
+
+set_clock_transition 0.6 MCLK
+set_clock_transition 0.6 SCLK
+
+set_input_delay -max 3 -clock SCLK [remove_from_collection [all_inputs] [get_ports clk]]
+set_input_delay -max 3 -clock MCLK [get_ports yn_in0]
+set_input_delay -max 3 -clock MCLK [get_ports yn_in1]
+set_input_delay -max 3 -clock MCLK [get_ports yn_in2]
+
+set_output_delay -max 3 -clock SCLK [remove_from_collection [all_outputs] [get_ports clk_div2_out]]
+
+set_load 0.01 [remove_from_collection [all_outputs] [get_ports clk_div2_out]]
+
+set_clock_uncertainty 0.2 MCLK
+set_clock_uncertainty 0.2 SCLK
+
+#set_fix_hold pclk
+
+set_false_path -from [get_ports reset_n]
+
+set_max_area 0
+

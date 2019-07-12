@@ -1,0 +1,1 @@
+dc_shell-xg-t -f fft_128_setup.tcl |tee log
